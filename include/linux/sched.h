@@ -2268,7 +2268,6 @@ struct task_struct {
 	/* A live task holds one reference. */
 	atomic_t stack_refcount;
 #endif
-
 #ifdef CONFIG_PREEMPT_MONITOR
 	unsigned long preempt_dur;
 #endif
@@ -2276,7 +2275,9 @@ struct task_struct {
 	u64 stall_ratio;
 	u64 badness;
 #endif
-
+#ifdef CONFIG_ANDROID_SIMPLE_LMK
+	struct task_struct		*simple_lmk_next;
+#endif
 /* CPU-specific state of this task */
 	struct thread_struct thread;
 /*
