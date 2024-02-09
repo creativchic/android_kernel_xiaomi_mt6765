@@ -1145,12 +1145,6 @@ void parse_service_name(struct binder_transaction_data *tr,
 	char *tmp;
 	char c;
 
-	/* TODO: Implement hwbinder service name parser. */
-	if (!strcmp(proc->context->name, "hwbinder")) {
-		name[0] = '\0';
-		return;
-	}
-
 	if (tr->target.handle == 0) {
 		for (i = 0; (2 * i) < tr->data_size; i++) {
 			/* hack into addService() payload:
