@@ -1035,10 +1035,6 @@ static int sched_rt_runtime_exceeded(struct rt_rq *rt_rq)
 	if (rt_rq->rt_time > runtime) {
 		struct rt_bandwidth *rt_b = sched_rt_bandwidth(rt_rq);
 
-#ifdef CONFIG_RT_GROUP_SCHED
-		print_rt_throttle_info(cpu, rt_rq, runtime_pre, runtime);
-#endif
-
 		/*
 		 * Don't actually throttle groups that have no runtime assigned
 		 * but accrue some time due to boosting.
